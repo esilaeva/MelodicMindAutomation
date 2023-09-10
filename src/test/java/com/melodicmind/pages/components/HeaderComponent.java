@@ -95,6 +95,10 @@ public class HeaderComponent {
         }
     }
 
+    public void clickLogin() {
+        btnLogin.click();
+    }
+
     public void clickSettings() {
         btnSettings.click();
     }

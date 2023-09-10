@@ -8,19 +8,19 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
 
+    public static final String URL = "https://melodic-mind.com/";
+
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = "https://melodic-mind.com/";
+        Configuration.baseUrl = URL;
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 5000;
         Configuration.pageLoadStrategy = "eager";
-
     }
 
     public static void clearCookie() {
         clearBrowserCookies();
         clearBrowserLocalStorage();
-
     }
 
     @AfterEach
@@ -28,17 +28,18 @@ public class TestBase {
         //  clearCookie();
         open("/");
         //  closeWebDriver();
-
     }
 
     public void successCookieShort() {
-        $("button.cookie__floating__buttons__button--accept").click();
+        if ($("button.cookie__floating__buttons__button--accept").isDisplayed())
+            if($("button.cookie__floating__buttons__button--accept").isDisplayed())
+                $("button.cookie__floating__buttons__button--accept").click();
     }
 
     public void successCookieLong() {
-        $("button.cookie__floating__buttons__button--decline").click();
-        $("div.text-center.q-pb-md button").click();
+        if ($("button.cookie__floating__buttons__button--accept").isDisplayed()) {
+            $("button.cookie__floating__buttons__button--decline").click();
+            $("div.text-center.q-pb-md button").click();
+        }
     }
-
-
 }

@@ -51,92 +51,78 @@ public class HomePage extends TestBase {
         return this;
     }
 
-    public HomePage verifficationTheStoryButton() {
+    public HomePage clickTheStoryButton() {
         header.clickTheStory();
 
         return this;
     }
 
-    public HomePage checkTheStoryPageOpened() {
+    public void checkTheStoryPageOpened() {
         storyPage.titleTheStoryPage.should(appear);
-
-        return this;
     }
 
-    public HomePage verifficationLearnButton() {
+    public HomePage clickLearnButton() {
         header.clickLearn();
 
         return this;
     }
 
-    public HomePage checkLearnPageOpened() {
+    public void checkLearnPageOpened() {
         learnPage.titleLearnPage.should(appear);
-
-        return this;
     }
 
-    public HomePage verifficationBlogButton() {
+    public HomePage clickBlogButton() {
         header.clickBlog();
 
         return this;
     }
 
-    public HomePage checkBlogPageOpened() {
+    public void checkBlogPageOpened() {
         blogPage.titleBlogPage.should(appear);
-
-        return this;
     }
 
-    public HomePage verifficationContactButton() {
+    public HomePage clickContactButton() {
         header.clickContact();
 
         return this;
     }
 
-    public HomePage checkContactPageOpened() {
+    public void checkContactPageOpened() {
         contactPage.titleContactPage.should(appear);
-
-        return this;
     }
 
-    public HomePage verifficationQandAButton() {
+    public HomePage clickQandAButton() {
         header.clickQandA();
 
         return this;
     }
 
-    public HomePage checkQandAPageOpened() {
+    public void checkQandAPageOpened() {
         qaPage.titleQAPage.should(appear);
+    }
+
+    public HomePage clickLoginButton() {
+        header.clickLogin();
 
         return this;
     }
 
-    public HomePage verifficationLoginOrProfileButton() {
-        header.clickLoginOrProfile();
-
-        return this;
-    }
-
-    public HomePage checkLoginOrProfilePageOpened() {
+    public void checkLoginOrProfilePageOpened() {
         if (header.getBtnLogin().isDisplayed()) {
             loginPage.continueWithEmail.should(appear);
         } else {
             profilePage.btnDeleteAccount.should(appear);
         }
-
-        return this;
     }
 
-    public HomePage verifficationSettingsButton() {
+    public HomePage clickSettingsButton() {
         header.clickSettings();
 
         return this;
     }
 
-    public HomePage checkSettingsModalWindowOpened() {
+    public void checkSettingsModalWindowOpened() {
         modalWindow.getBtnClose().should(appear);
-
-        return this;
     }
 
     public HomePage verifficationButtonsAppForFree() {

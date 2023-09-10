@@ -1,6 +1,8 @@
 package com.melodicmind.tests;
 
 import com.melodicmind.pages.LoginPage;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -10,6 +12,8 @@ public class LoginTests extends TestBase {
     LoginPage login = new LoginPage();
 
     @Test
+    @Tag("login")
+    @DisplayName("Positive login with email")
     void loginSuccessWithEmail() {
 
         login
@@ -25,6 +29,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email without '@'")
     void loginNegativeWrongEmailWithoutAt() {
         login
                 .openLoginPage()
@@ -38,6 +45,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email with '@@'")
     void loginNegativeWrongEmailWithTwoAt() {
         login
                 .openLoginPage()
@@ -51,6 +61,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email without userName")
     void loginNegativeWrongEmailWithoutNameMail() {
         login
                 .openLoginPage()
@@ -64,6 +77,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email without domain")
     void loginNegativeWrongEmailWithoutDomain() {
         login
                 .openLoginPage()
@@ -77,6 +93,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email with wrong domain")
     void loginNegativeWrongEmailWithWrongDomain() {
         login
                 .openLoginPage()
@@ -90,6 +109,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email with '..' in domain")
     void loginNegativeWrongEmailWithTwoDots() {
         login
                 .openLoginPage()
@@ -103,7 +125,10 @@ public class LoginTests extends TestBase {
     }
 
     @Test
-    void loginNegativeWrongEmailWithRusSybols() {
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email with rus symbols")
+    void loginNegativeWrongEmailWithRusSymbols() {
         login
                 .openLoginPage()
                 .continueWithEmail()
@@ -116,6 +141,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email, spaced user name")
     void loginNegativeWrongEmailWithSpace() {
         login
                 .openLoginPage()
@@ -129,6 +157,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email, user name is empty")
     void loginNegativeEmptyEmail() {
         login
                 .openLoginPage()
@@ -142,6 +173,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong email, user name is null")
     void loginNegativeNullEmail() {
         login
                 .openLoginPage()
@@ -155,6 +189,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, wrong password")
     void loginNegativeWithEmailWrongPassword() {
         login
                 .openLoginPage()
@@ -169,6 +206,9 @@ public class LoginTests extends TestBase {
     }
 
     @Test
+    @Tag("login")
+    @Tag("negative")
+    @DisplayName("Negative login, unregistered user")
     void loginNegativeUnregisteredUser() {
         login
                 .openLoginPage()
