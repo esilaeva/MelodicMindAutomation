@@ -49,3 +49,21 @@ tasks.withType(Test) {
 test {
     useJUnitPlatform()
 }
+
+task login_test(type: Test) {
+    useJUnitPlatform{
+        includeTags('login')
+    }
+}
+
+task homepage_test(type: Test) {
+    useJUnitPlatform{
+        includeTags('homepage')
+    }
+}
+
+task negative_test(type: Test) {
+    useJUnitPlatform{
+        includeTags('negative')
+    }
+}
