@@ -1,31 +1,29 @@
 package com.melodicmind.tests;
 
-import com.melodicmind.pages.LoginPage;
+import components.WebSteps;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class LoginTests extends TestBase {
 
-    LoginPage login = new LoginPage();
+    WebSteps step = new WebSteps();
 
     @Test
     @Tag("login")
     @DisplayName("Positive login with email")
     void loginSuccessWithEmail() {
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qa@proton.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qa@proton.me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
-
-        login.checkProfile();
-        closeWebDriver();
+        step.checkTheElementExists(BTN_PROFILE);
     }
 
     @Test
@@ -33,15 +31,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email without '@'")
     void loginNegativeWrongEmailWithoutAt() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qaproton.me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qaproton.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
     }
 
     @Test
@@ -49,15 +46,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email with '@@'")
     void loginNegativeWrongEmailWithTwoAt() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qa@@proton.me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qa@@proton.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
     }
 
     @Test
@@ -65,15 +61,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email without userName")
     void loginNegativeWrongEmailWithoutNameMail() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("@proton.me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "@proton.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
     }
 
     @Test
@@ -81,15 +76,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email without domain")
     void loginNegativeWrongEmailWithoutDomain() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qa@")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qa@");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
     }
 
     @Test
@@ -97,15 +91,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email with wrong domain")
     void loginNegativeWrongEmailWithWrongDomain() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qa@.me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qa@.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
     }
 
     @Test
@@ -113,31 +106,29 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email with '..' in domain")
     void loginNegativeWrongEmailWithTwoDots() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qa@proton..me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qa@proton..me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
     }
 
     @Test
     @Tag("login")
     @Tag("negative")
-    @DisplayName("Negative login, wrong email with rus symbols")
+    @DisplayName("Negative login, wrong email with rus symbol")
     void loginNegativeWrongEmailWithRusSymbols() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("илана.qa@proton..me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilanа.qa@proton.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_UNREGISTERED_USER);
     }
 
     @Test
@@ -145,15 +136,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email, spaced user name")
     void loginNegativeWrongEmailWithSpace() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail(" ")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, " ");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongEmail();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
     }
 
     @Test
@@ -161,15 +151,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email, user name is empty")
     void loginNegativeEmptyEmail() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorEmptyEmail("Invalid email address");
+        step.checkTheElementExists(ERROR_SIGN_IN_INVALID_EMAIL);
     }
 
     @Test
@@ -177,15 +166,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong email, user name is null")
     void loginNegativeNullEmail() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail(null)
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, null);
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorEmptyEmail("Invalid email address");
+        step.checkTheElementExists(ERROR_SIGN_IN_INVALID_EMAIL);
     }
 
     @Test
@@ -193,16 +181,14 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, wrong password")
     void loginNegativeWithEmailWrongPassword() {
-        login
-                .openLoginPage()
-                .checkLoginPageOpened()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qa@proton.me")
-                .setPassword("Ii12345")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qa@proton.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInWrongPassword();
+        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_PASSWORD);
     }
 
     @Test
@@ -210,14 +196,13 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @DisplayName("Negative login, unregistered user")
     void loginNegativeUnregisteredUser() {
-        login
-                .openLoginPage()
-                .continueWithEmail()
-                .chooseTabSignIn()
-                .setEmail("ilana.qa+1@proton.me")
-                .setPassword("Ii12345$")
-                .clickSighIn();
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        step.setValue(EMAIL_INPUT, "ilana.qa+1@proton.me");
+        step.setValue(PASSWORD_INPUT, "Ii12345$");
+        step.clickElement(BTN_SIGN_IN);
 
-        login.checkErrorSignInUnregUser("No user found with this email");
+        step.checkTheElementExists(ERROR_SIGN_IN_UNREGISTERED_USER);
     }
 }
