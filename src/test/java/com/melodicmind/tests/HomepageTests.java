@@ -1,97 +1,102 @@
 package com.melodicmind.tests;
 
-import com.melodicmind.pages.HomePage;
+import components.WebSteps;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.sleep;
+
 public class HomepageTests extends TestBase {
 
-    HomePage home = new HomePage();
+    WebSteps step = new WebSteps();
 
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'The Story' Button")
     public void verificationTheStoryButtons() {
-        home
-                .openHomePage()
-                .clickTheStoryButton()
-                .checkTheStoryPageOpened();
+        step.openPage(URL_MAIN);
+        step.clickElement(BTN_THE_STORY);
+        step.checkThePageOpened(TITLE_THE_STORY_PAGE);
     }
 
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Learn' Button")
-    public void verificationLearnButtons() {
-        home
-                .openHomePage()
-                .clickLearnButton()
-                .checkLearnPageOpened();
+    public void verificationLearnButton() {
+        step.openPage(URL_MAIN);
+        step.clickElement(BTN_LEARN);
+        step.checkThePageOpened(TITLE_LEARN_PAGE);
     }
 
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Blog' Button")
-    public void verificationBlogButtons() {
-        home
-                .openHomePage()
-                .clickBlogButton()
-                .checkBlogPageOpened();
+    public void verificationBlogButton() {
+        step.openPage(URL_MAIN);
+        step.clickElement(BTN_BLOG);
+        step.checkThePageOpened(TITLE_BLOG_PAGE);
     }
 
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Contact' Button")
-    public void verificationContactButtons() {
-        home
-                .openHomePage()
-                .clickContactButton()
-                .checkContactPageOpened();
+    public void verificationContactButton() {
+        step.openPage(URL_MAIN);
+        step.clickElement(BTN_CONTACT);
+        step.checkThePageOpened(TITLE_CONTACT_PAGE);
     }
 
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Q and A' Button")
-    public void verificationQandAButtons() {
-        home
-                .openHomePage()
-                .clickQandAButton()
-                .checkQandAPageOpened();
+    public void verificationQandAButton() {
+        step.openPage(URL_MAIN);
+        step.clickElement(BTN_QA);
+        step.checkThePageOpened(TITLE_QA_PAGE);
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Login or Profile' Button")
-    public void verificationLoginButtons() {
-        home
-                .openHomePage()
-                .clickLoginButton()
-                .checkLoginOrProfilePageOpened();
+    @DisplayName("Verification 'Profile' Button")
+    public void verificationProfileButton() {
+        step.openPage(URL_LOGIN);
+        step.clickElement(CONTINUE_WITH_EMAIL);
+        step.clickElement(TAB_SIGN_IN);
+        sleep(500);
+        step.setValue(EMAIL_INPUT, EMAIL);
+        step.setValue(PASSWORD_INPUT, PASSWORD);
+        step.clickElement(BTN_SIGN_IN);
+        step.checkTheElementExists(BTN_PROFILE);
     }
-//TODO
-//    @Test
-//    @Tag("homepage")
-//    @DisplayName("Verification 'Profile' Button")
-//    public void verificationProfileButtons() {
-//        home
-//                .openHomePage()
-//                .openLoginPage()
-//                .continueWithEmail()
-//                .chooseTabSignIn()
-//                .setEmail("ilana.qa@proton.me")
-//                .setPassword("Ii12345$")
-//                .clickSighIn();
-//                .clickProfileButton()
-//                .checkLoginOrProfilePageOpened();
-//    }
+
+    @Test
+    @Tag("homepage")
+    @DisplayName("Verification 'Login' Button")
+    public void verificationLoginButton() {
+        closeWebDriver();
+
+        step.openPage(URL_MAIN);
+        step.clickElement(BTN_LOGIN);
+        step.checkTheElementExists(CONTINUE_WITH_EMAIL);
+    }
 
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Settings' Button")
-    public void verificationButtons() {
-        home
-                .openHomePage()
-                .clickSettingsButton()
-                .checkSettingsModalWindowOpened();
+    public void verificationButton() {
+        step.openPage(URL_MAIN);
+        step.clickElement(BTN_SETTINGS);
+        step.checkTheElementExists(BTN_CLOSE);
+    }
+
+    @Test
+    @Tag("homepage")
+    @DisplayName("Verification 'Homepage' Button")
+    public void verificationHomeButton() {
+        step.openPage(URL_LOGIN);
+        step.clickElement(BTN_HOMEPAGE);
+        step.checkContainsText(TITLE_HOME_PAGE, "Melodic Mind");
     }
 }
