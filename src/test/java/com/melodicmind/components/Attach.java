@@ -1,4 +1,4 @@
-package components;
+package com.melodicmind.components;
 
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;

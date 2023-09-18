@@ -2,8 +2,8 @@ package com.melodicmind.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import components.Attach;
-import components.Elements;
+import com.melodicmind.components.Attach;
+import com.melodicmind.components.Elements;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -23,11 +23,11 @@ public class TestBase extends Elements {
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = System.getProperty(URL_MAIN);
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        //Configuration.pageLoadStrategy = "eager";
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.pageLoadStrategy = "eager";
 
-        Configuration.remote = System.getProperty("wbhost", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = System.getProperty("wbhost");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
