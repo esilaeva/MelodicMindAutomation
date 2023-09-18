@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.sleep;
+
 public class LoginTests extends TestBase {
 
     WebSteps step = new WebSteps();
@@ -17,6 +19,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, EMAIL);
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -32,6 +35,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qaproton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -47,6 +51,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@@proton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -62,6 +67,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "@proton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -77,6 +83,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -93,6 +100,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -109,6 +117,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@proton..me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -125,6 +134,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilanа.qa@proton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -141,6 +151,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, " ");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -157,6 +168,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -173,6 +185,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, null);
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -189,6 +202,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, EMAIL);
         step.setValue("PASSWORD", PASSWORD_INPUT, "Ii12345");
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -205,6 +219,7 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
+        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa+1@proton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
