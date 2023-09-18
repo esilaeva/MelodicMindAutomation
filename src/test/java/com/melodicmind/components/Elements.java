@@ -1,4 +1,4 @@
-package components;
+package com.melodicmind.components;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Elements {
-
     public static final SelenideElement
             BTN_HOMEPAGE = $("a[href='/'"),
             BTN_THE_STORY = $("a[href='/the-story']"),
@@ -26,7 +25,6 @@ public class Elements {
             BTN_USE_OUR_APPS_FOR_FREE = $("h1 h1 button");
 
     public static final SelenideElement
-            CONTINUE_WITH_GOOGLE = $("div.btn-container"),
             CONTINUE_WITH_EMAIL = $("div.btn-container").lastChild(),
             TAB_SIGN_IN = $("div.email-auth-container").$(byText("Sign in")),
             EMAIL_INPUT = $("form.q-form.login-form input[aria-label='Email']"),
@@ -48,6 +46,6 @@ public class Elements {
 
     public static final String
             EMAIL = "ilana.qa@proton.me",
-            PASSWORD = "Ii12345$";
-
+            PASSWORD = "Ii12345$",
+            EMPTY_STRING = "";
 }
