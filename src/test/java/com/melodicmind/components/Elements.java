@@ -17,12 +17,10 @@ public class Elements {
             BTN_PROFILE = $("a[href='/account']"),
             BTN_SETTINGS = $("header div div div div button"),
             BTN_CLOSE = $("button[aria-label='close']"),
-            BTN_DELETE_ACCOUNT = $("href='/delete-user'"),
             BTN_SIGN_IN = $("form.login-form").lastChild(),
             BTN_COOKIES_ACCEPT = $("button.cookie__floating__buttons__button--accept"),
             BTN_COOKIES_DECLINE = $("button.cookie__floating__buttons__button--decline"),
-            BTN_ACCEPT = $("div.app-btn__content").$(byText("Accept")),
-            BTN_USE_OUR_APPS_FOR_FREE = $("h1 h1 button");
+            BTN_ACCEPT = $("div.app-btn__content").$(byText("Accept"));
 
     public static final SelenideElement
             CONTINUE_WITH_EMAIL = $("div.btn-container").lastChild(),

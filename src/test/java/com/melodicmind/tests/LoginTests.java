@@ -98,14 +98,12 @@ public class LoginTests extends TestBase {
     @Test
     @Tag("login")
     @Tag("negative")
-    @Disabled("The test off")
     @DisplayName("Negative login, wrong email with wrong domain")
     @Feature("Login test")
     void loginNegativeWrongEmailWithWrongDomain() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -116,14 +114,12 @@ public class LoginTests extends TestBase {
     @Test
     @Tag("login")
     @Tag("negative")
-    @Disabled("The test off")
     @DisplayName("Negative login, wrong email with '..' in domain")
     @Feature("Login test")
     void loginNegativeWrongEmailWithTwoDots() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@proton..me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -134,14 +130,12 @@ public class LoginTests extends TestBase {
     @Test
     @Tag("login")
     @Tag("negative")
-    @Disabled("The test off")
     @DisplayName("Negative login, wrong email with rus symbol")
     @Feature("Login test")
     void loginNegativeWrongEmailWithRusSymbols() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilanа.qa@proton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -152,14 +146,12 @@ public class LoginTests extends TestBase {
     @Test
     @Tag("login")
     @Tag("negative")
-    @Disabled("The test off")
     @DisplayName("Negative login, wrong email, spaced user name")
     @Feature("Login test")
     void loginNegativeWrongEmailWithSpace() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, " ");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
