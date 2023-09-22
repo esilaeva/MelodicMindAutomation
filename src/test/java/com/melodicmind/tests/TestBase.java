@@ -16,10 +16,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase extends Elements {
 
-    public static final String
-            URL_MAIN = "https://melodic-mind.com/",
-            URL_LOGIN = "https://melodic-mind.com/login";
-
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = System.getProperty(URL_MAIN);
@@ -38,11 +34,6 @@ public class TestBase extends Elements {
         Configuration.browserCapabilities = capabilities;
     }
 
-    public static void clearCookies() {
-        clearBrowserCookies();
-        clearBrowserLocalStorage();
-    }
-
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -56,17 +47,5 @@ public class TestBase extends Elements {
         Attach.addVideo();
 
         closeWebDriver();
-    }
-
-    public void successCookieShort() {
-        if (BTN_COOKIES_ACCEPT.isDisplayed())
-            BTN_COOKIES_ACCEPT.click();
-    }
-
-    public void successCookieLong() {
-        if (BTN_COOKIES_ACCEPT.isDisplayed()) {
-            BTN_COOKIES_DECLINE.click();
-            BTN_ACCEPT.click();
-        }
     }
 }
