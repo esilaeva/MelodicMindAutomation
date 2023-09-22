@@ -38,7 +38,6 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qaproton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
@@ -55,7 +54,6 @@ public class LoginTests extends TestBase {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
         step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        sleep(500);
         step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@@proton.me");
         step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
         step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
