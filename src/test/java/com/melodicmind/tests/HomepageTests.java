@@ -1,7 +1,7 @@
 package com.melodicmind.tests;
 
 import com.melodicmind.components.WebSteps;
-import io.qameta.allure.Story;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,7 +17,7 @@ public class HomepageTests extends TestBase {
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'The Story' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationTheStoryButtons() {
         step.openPage(URL_MAIN);
         elementName = step.getConstantElement(BTN_THE_STORY);
@@ -29,7 +29,7 @@ public class HomepageTests extends TestBase {
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Learn' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationLearnButton() {
         step.openPage(URL_MAIN);
         elementName = step.getConstantElement(BTN_LEARN);
@@ -41,7 +41,7 @@ public class HomepageTests extends TestBase {
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Blog' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationBlogButton() {
         step.openPage(URL_MAIN);
         elementName = step.getConstantElement(BTN_BLOG);
@@ -53,7 +53,7 @@ public class HomepageTests extends TestBase {
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Contact' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationContactButton() {
         step.openPage(URL_MAIN);
         elementName = step.getConstantElement(BTN_CONTACT);
@@ -65,7 +65,7 @@ public class HomepageTests extends TestBase {
     @Test
     @Tag("homepage")
     @DisplayName("Verification 'Q and A' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationQandAButton() {
         step.openPage(URL_MAIN);
         elementName = step.getConstantElement(BTN_QA);
@@ -78,7 +78,7 @@ public class HomepageTests extends TestBase {
     @Tag("homepage")
     @Disabled("The test off")
     @DisplayName("Verification 'Profile' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationProfileButton() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -94,7 +94,7 @@ public class HomepageTests extends TestBase {
     @Tag("homepage")
     @Disabled("The test off")
     @DisplayName("Verification 'Login' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationLoginButton() {
         closeWebDriver();
 
@@ -109,7 +109,7 @@ public class HomepageTests extends TestBase {
     @Tag("homepage")
     @Disabled("The test off")
     @DisplayName("Verification 'Settings' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationButton() {
         step.openPage(URL_MAIN);
         step.clickElement("BTN_SETTINGS", BTN_SETTINGS);
@@ -121,7 +121,7 @@ public class HomepageTests extends TestBase {
     @Tag("homepage")
     @Disabled("The test off")
     @DisplayName("Verification 'Homepage' Button")
-    @Story("Homepage buttons test")
+    @Feature("Homepage buttons test")
     public void verificationHomeButton() {
         step.openPage(URL_LOGIN);
         elementName = step.getConstantElement(BTN_HOMEPAGE);
