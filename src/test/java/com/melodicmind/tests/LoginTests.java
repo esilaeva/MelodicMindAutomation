@@ -1,6 +1,7 @@
 package com.melodicmind.tests;
 
 import com.melodicmind.components.WebSteps;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -15,6 +16,7 @@ public class LoginTests extends TestBase {
     @Test
     @Tag("login")
     @DisplayName("Positive login with email")
+    @Story("Login test")
     void loginSuccessWithEmail() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -31,6 +33,7 @@ public class LoginTests extends TestBase {
     @Tag("login")
     @Tag("negative")
     @DisplayName("Negative login, wrong email without '@'")
+    @Story("Login test")
     void loginNegativeWrongEmailWithoutAt() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -47,6 +50,7 @@ public class LoginTests extends TestBase {
     @Tag("login")
     @Tag("negative")
     @DisplayName("Negative login, wrong email with '@@'")
+    @Story("Login test")
     void loginNegativeWrongEmailWithTwoAt() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -63,6 +67,7 @@ public class LoginTests extends TestBase {
     @Tag("login")
     @Tag("negative")
     @DisplayName("Negative login, wrong email without userName")
+    @Story("Login test")
     void loginNegativeWrongEmailWithoutNameMail() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -79,6 +84,7 @@ public class LoginTests extends TestBase {
     @Tag("login")
     @Tag("negative")
     @DisplayName("Negative login, wrong email without domain")
+    @Story("Login test")
     void loginNegativeWrongEmailWithoutDomain() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -96,6 +102,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, wrong email with wrong domain")
+    @Story("Login test")
     void loginNegativeWrongEmailWithWrongDomain() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -113,6 +120,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, wrong email with '..' in domain")
+    @Story("Login test")
     void loginNegativeWrongEmailWithTwoDots() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -130,6 +138,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, wrong email with rus symbol")
+    @Story("Login test")
     void loginNegativeWrongEmailWithRusSymbols() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -147,6 +156,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, wrong email, spaced user name")
+    @Story("Login test")
     void loginNegativeWrongEmailWithSpace() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -164,6 +174,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, wrong email, user name is empty")
+    @Story("Login test")
     void loginNegativeEmptyEmail() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -181,6 +192,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, wrong email, user name is null")
+    @Story("Login test")
     void loginNegativeNullEmail() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -198,6 +210,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, wrong password")
+    @Story("Login test")
     void loginNegativeWithEmailWrongPassword() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
@@ -215,6 +228,7 @@ public class LoginTests extends TestBase {
     @Tag("negative")
     @Disabled("The test off")
     @DisplayName("Negative login, unregistered user")
+    @Story("Login test")
     void loginNegativeUnregisteredUser() {
         step.openPage(URL_LOGIN);
         step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);

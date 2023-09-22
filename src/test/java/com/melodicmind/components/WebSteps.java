@@ -55,4 +55,18 @@ public class WebSteps extends Elements {
                 .map(Field::getName)
                 .findAny().orElse(EMPTY_STRING);
     }
+
+    @Step("Delete cookies")
+    public void successCookieShort() {
+        if (BTN_COOKIES_ACCEPT.isDisplayed())
+            BTN_COOKIES_ACCEPT.click();
+    }
+
+    @Step("Delete cookies")
+    public void successCookieLong() {
+        if (BTN_COOKIES_ACCEPT.isDisplayed()) {
+            BTN_COOKIES_DECLINE.click();
+            BTN_ACCEPT.click();
+        }
+    }
 }

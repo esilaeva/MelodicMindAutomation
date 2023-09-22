@@ -45,6 +45,8 @@ public class Elements {
             ERROR_SIGN_IN_INVALID_EMAIL = $(byText("Invalid email address"));
 
     public static final String
+            URL_MAIN = "https://melodic-mind.com/",
+            URL_LOGIN = "https://melodic-mind.com/login",
             EMAIL = "ilana.qa@proton.me",
             PASSWORD = "Ii12345$",
             EMPTY_STRING = "";
