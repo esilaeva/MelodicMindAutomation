@@ -6,7 +6,7 @@
 ### Содержание
 [Технологии и инструменты](#Технологии-и-инструменты)  
 [Сборка в Jenkins](#Сборка-в-Jenkins)  
-[Allure Report](#Allure-Report)  
+[Интеграция с Allure Report](#Интеграция-с-Allure-Report)  
 [Интеграция с Allure TestOps](#Интеграция-с-Allure-TestOps)  
 [Интеграция с Jira](#Интеграция-с-Jira)  
 [Уведомление в Telegram](#Уведомление-в-Telegram)  
@@ -61,6 +61,9 @@
 
 ### Сборка в Jenkins
 
+Для запуска сборки необходимо перейти на страницу проекта [Melodic Mind](https://jenkins.autotests.cloud/job/MelodicMind/)
+в `Jenkins`, далее в раздел `Собрать с параметрами`, выбрать необходимые параметры и нажать
+кнопку `Собрать`.
 #### Параметры сборки:
 
 - **WBHOST** - URL Selenoid (по умолчанию selenoid.autotests.cloud)
@@ -69,47 +72,45 @@
 - **BROWSER_VERSION** - версия браузера (по умолчанию 99.0)
 - **BROWSER_SIZE** - размер окна браузера (по умолчанию 1920x1080)
 
-Для запуска сборки необходимо перейти в раздел `Собрать с параметрами`, выбрать необходимые параметры и нажать
-кнопку `Собрать`.
-
 <p>
 <img width="100%" title="Jenkins" src="src/test/resources/screenshorts/006-jenkins.png">
 <img width="100%" title="Jenkins" src="src/test/resources/screenshorts/007-jenkins.png">
 </p>
 
-### Allure Report
+### Интеграция с Allure Report
+При удаленном запуске тестов в `Jenkins`, автоматически генерируется [Allure Report](https://jenkins.autotests.cloud/job/MelodicMind/8/allure/)
 
-##### Overview
+##### [Overview](https://jenkins.autotests.cloud/job/MelodicMind/8/allure/#)
 
 <img width="100%" title="Allure Report" src="src/test/resources/screenshorts/004-allureReport.png">
 
-##### Test details
+##### [Test details](https://jenkins.autotests.cloud/job/MelodicMind/8/allure/#behaviors)
 
 <img width="100%" title="Allure Report" src="src/test/resources/screenshorts/008-allureReport.png">
 
 ### Интеграция с Allure TestOps
 
-В отчете `Allure TestOps` можно:
+В отчете [Allure TestOps](https://allure.autotests.cloud/launch/30255) можно:
 
 - просматривать созданные тест-кейсы и чек-листы,
 - запускать ручные и автоматические тестовые прогоны,
 - заводить дефекты,
 - собирать статистику о проделанной работе.
 
-##### Allure TestOps Dashboard
+##### [Allure TestOps Dashboard](https://allure.autotests.cloud/project/3685/dashboards)
 
 <img width="100%" title="Allure TestOps" src="src/test/resources/screenshorts/009-testOps_dashboards.png">
 
-##### Ручные и автоматические тест-кейсы
+##### [Ручные и автоматические тест-кейсы](https://allure.autotests.cloud/project/3685/test-cases/26194?treeId=7187)
 
-<img width="100%" title="Allure TestOps" src="src/test/resources/screenshorts/003-testOps_testCase.png">
+<img width="100%" title="Allure TestOps" src="src/test/resources/screenshorts/010-testOps_testCase.png">
 
 ### Интеграция с Jira
 
-Интеграция `Allure TestOps` с `Jira`, позволяет отображать в задаче, открытой в `Jira`, какие тест-кейсы были написаны в
+Интеграция `Allure TestOps` с `Jira`, позволяет отображать в [задаче](https://jira.autotests.cloud/browse/HOMEWORK-894), открытой в `Jira`, какие тест-кейсы были написаны в
 рамках задачи и результат их выполнения.
 
-<img width="100%" title="Jira" src="src/test/resources/screenshorts/001-jira.png">
+<img width="100%" title="Jira" src="src/test/resources/screenshorts/011-jira.png">
 
 ### Уведомление в Telegram
 
