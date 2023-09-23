@@ -19,11 +19,11 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'The Story' Button")
     @Feature("Homepage buttons test")
     public void verificationTheStoryButtons() {
-        step.openPage(URL_MAIN);
-        elementName = step.getConstantElement(BTN_THE_STORY);
-        step.clickElement(elementName, BTN_THE_STORY);
+        step.openPage(urlMain);
+        elementName = step.getConstantElement(btnTheStory);
+        step.clickElement(elementName, btnTheStory);
 
-        step.checkThePageOpened(TITLE_THE_STORY_PAGE);
+        step.checkThePageOpened(titleTheStoryPage);
     }
 
     @Test
@@ -31,11 +31,11 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'Learn' Button")
     @Feature("Homepage buttons test")
     public void verificationLearnButton() {
-        step.openPage(URL_MAIN);
-        elementName = step.getConstantElement(BTN_LEARN);
-        step.clickElement(elementName, BTN_LEARN);
+        step.openPage(urlMain);
+        elementName = step.getConstantElement(btnLearn);
+        step.clickElement(elementName, btnLearn);
 
-        step.checkThePageOpened(TITLE_LEARN_PAGE);
+        step.checkThePageOpened(titleLearnPage);
     }
 
     @Test
@@ -43,11 +43,11 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'Blog' Button")
     @Feature("Homepage buttons test")
     public void verificationBlogButton() {
-        step.openPage(URL_MAIN);
-        elementName = step.getConstantElement(BTN_BLOG);
-        step.clickElement(elementName, BTN_BLOG);
+        step.openPage(urlMain);
+        elementName = step.getConstantElement(btnBlog);
+        step.clickElement(elementName, btnBlog);
 
-        step.checkThePageOpened(TITLE_BLOG_PAGE);
+        step.checkThePageOpened(titleBlogPage);
     }
 
     @Test
@@ -55,11 +55,11 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'Contact' Button")
     @Feature("Homepage buttons test")
     public void verificationContactButton() {
-        step.openPage(URL_MAIN);
-        elementName = step.getConstantElement(BTN_CONTACT);
-        step.clickElement(elementName, BTN_CONTACT);
+        step.openPage(urlMain);
+        elementName = step.getConstantElement(btnContact);
+        step.clickElement(elementName, btnContact);
 
-        step.checkThePageOpened(TITLE_CONTACT_PAGE);
+        step.checkThePageOpened(titleContactPage);
     }
 
     @Test
@@ -67,11 +67,11 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'Q and A' Button")
     @Feature("Homepage buttons test")
     public void verificationQandAButton() {
-        step.openPage(URL_MAIN);
-        elementName = step.getConstantElement(BTN_QA);
-        step.clickElement(elementName, BTN_QA);
+        step.openPage(urlMain);
+        elementName = step.getConstantElement(btnQa);
+        step.clickElement(elementName, btnQa);
 
-        step.checkThePageOpened(TITLE_QA_PAGE);
+        step.checkThePageOpened(titleQaPage);
     }
 
     @Test
@@ -80,14 +80,14 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'Profile' Button")
     @Feature("Homepage buttons test")
     public void verificationProfileButton() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        step.setValue("EMAIL", EMAIL_INPUT, EMAIL);
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        step.setValue("EMAIL", inputEmail, email);
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(BTN_PROFILE);
+        step.checkTheElementExists(btnProfile);
     }
 
     @Test
@@ -98,11 +98,11 @@ public class HomepageTests extends TestBase {
     public void verificationLoginButton() {
         closeWebDriver();
 
-        step.openPage(URL_MAIN);
-        elementName = step.getConstantElement(BTN_LOGIN);
-        step.clickElement(elementName, BTN_LOGIN);
+        step.openPage(urlMain);
+        elementName = step.getConstantElement(btnLogin);
+        step.clickElement(elementName, btnLogin);
 
-        step.checkTheElementExists(CONTINUE_WITH_EMAIL);
+        step.checkTheElementExists(continueWithEmail);
     }
 
     @Test
@@ -111,10 +111,10 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'Settings' Button")
     @Feature("Homepage buttons test")
     public void verificationButton() {
-        step.openPage(URL_MAIN);
-        step.clickElement("BTN_SETTINGS", BTN_SETTINGS);
+        step.openPage(urlMain);
+        step.clickElement("BTN_SETTINGS", btnSettings);
 
-        step.checkTheElementExists(BTN_CLOSE);
+        step.checkTheElementExists(btnClose);
     }
 
     @Test
@@ -123,10 +123,10 @@ public class HomepageTests extends TestBase {
     @DisplayName("Verification 'Homepage' Button")
     @Feature("Homepage buttons test")
     public void verificationHomeButton() {
-        step.openPage(URL_LOGIN);
-        elementName = step.getConstantElement(BTN_HOMEPAGE);
-        step.clickElement(elementName, BTN_HOMEPAGE);
+        step.openPage(urlLogin);
+        elementName = step.getConstantElement(btnHomepage);
+        step.clickElement(elementName, btnHomepage);
 
-        step.checkContainsText(TITLE_HOME_PAGE, "Melodic Mind");
+        step.checkContainsText(titleHomePage, "Melodic Mind");
     }
 }

@@ -6,47 +6,47 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Elements {
-    public static final SelenideElement
-            BTN_HOMEPAGE = $("a[href='/'"),
-            BTN_THE_STORY = $("a[href='/the-story']"),
-            BTN_LEARN = $("a[href='/learn']"),
-            BTN_BLOG = $("a[href='/blog']"),
-            BTN_CONTACT = $("a[href='/contact']"),
-            BTN_QA = $("a[href='/qa']"),
-            BTN_LOGIN = $("a[href='/login']"),
-            BTN_PROFILE = $("a[href='/account']"),
-            BTN_SETTINGS = $("header div div div div button"),
-            BTN_CLOSE = $("button[aria-label='close']"),
-            BTN_SIGN_IN = $("form.login-form").lastChild(),
-            BTN_SIGN_UP = $("form.login-form button").$(byText("Sign up")),
-            BTN_COOKIES_ACCEPT = $("button.cookie__floating__buttons__button--accept"),
-            BTN_COOKIES_DECLINE = $("button.cookie__floating__buttons__button--decline"),
-            BTN_ACCEPT = $("div.app-btn__content").$(byText("Accept"));
+    public SelenideElement
+            btnHomepage = $("a[href='/'"),
+            btnTheStory = $("a[href='/the-story']"),
+            btnLearn = $("a[href='/learn']"),
+            btnBlog = $("a[href='/blog']"),
+            btnContact = $("a[href='/contact']"),
+            btnQa = $("a[href='/qa']"),
+            btnLogin = $("a[href='/login']"),
+            btnProfile = $("a[href='/account']"),
+            btnSettings = $("header div div div div button"),
+            btnClose = $("button[aria-label='close']"),
+            btnSignIn = $("form.login-form").lastChild(),
+            btnSignUp = $("form.login-form button").$(byText("Sign up")),
+            btnCookiesAccept = $("button.cookie__floating__buttons__button--accept"),
+            btnCookiesDecline = $("button.cookie__floating__buttons__button--decline"),
+            btnAccept = $("div.app-btn__content").$(byText("Accept"));
 
     public static final SelenideElement
-            CONTINUE_WITH_EMAIL = $("div.btn-container").lastChild(),
-            TAB_SIGN_IN = $("div.email-auth-container").$(byText("Sign in")),
-            EMAIL_INPUT = $("form.q-form.login-form input[aria-label='Email']"),
-            PASSWORD_INPUT = $("form.q-form.login-form input[aria-label='Password'");
+            continueWithEmail = $("div.btn-container").lastChild(),
+            tabSignIn = $("div.email-auth-container").$(byText("Sign in")),
+            inputEmail = $("form.q-form.login-form input[aria-label='Email']"),
+            inputPassword = $("form.q-form.login-form input[aria-label='Password'");
 
-    public static final SelenideElement
-            TITLE_HOME_PAGE = $("h1.title span"),
-            TITLE_THE_STORY_PAGE = $("h1 span").$(byText("The Story")),
-            TITLE_LEARN_PAGE = $("h1 span").$(byText("Learn")),
-            TITLE_BLOG_PAGE = $("h1 span").$(byText("Melodic Mind Blog")),
-            TITLE_CONTACT_PAGE = $("h1 span").$(byText("Contact Us")),
-            TITLE_QA_PAGE = $("h1 span").$(byText("Question and answers"));
+    public SelenideElement
+            titleHomePage = $("h1.title span"),
+            titleTheStoryPage = $("h1 span").$(byText("The Story")),
+            titleLearnPage = $("h1 span").$(byText("Learn")),
+            titleBlogPage = $("h1 span").$(byText("Melodic Mind Blog")),
+            titleContactPage = $("h1 span").$(byText("Contact Us")),
+            titleQaPage = $("h1 span").$(byText("Question and answers"));
 
-    public static final SelenideElement
-            ERROR_SIGN_IN_WRONG_EMAIL = $(byText("Error signing in, please try again.")),
-            ERROR_SIGN_IN_WRONG_PASSWORD = $("#q-notify").$(byText("Wrong password")),
-            ERROR_SIGN_IN_UNREGISTERED_USER = $("#q-notify").$(byText("No user found with this email")),
-            ERROR_SIGN_IN_INVALID_EMAIL = $(byText("Invalid email address"));
+    public SelenideElement
+            errorSignInWrongEmail = $(byText("Error signing in, please try again.")),
+            errorSignInWrongPassword = $("#q-notify").$(byText("Wrong password")),
+            errorSignInUnregisteredUser = $("#q-notify").$(byText("No user found with this email")),
+            errorSignInInvalidEmail = $(byText("Invalid email address"));
 
-    public static final String
-            URL_MAIN = "https://melodic-mind.com/",
-            URL_LOGIN = "https://melodic-mind.com/login",
-            EMAIL = "ilana.qa@proton.me",
-            PASSWORD = "Ii12345$",
-            EMPTY_STRING = "";
+    public String
+            urlMain = "https://melodic-mind.com/",
+            urlLogin = "https://melodic-mind.com/login",
+            email = "ilana.qa@proton.me",
+            password = "Ii12345$",
+            emptyString = "";
 }

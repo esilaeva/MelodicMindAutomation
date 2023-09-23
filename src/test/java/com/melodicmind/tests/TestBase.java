@@ -18,7 +18,7 @@ public class TestBase extends Elements {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = System.getProperty(URL_MAIN);
+        Configuration.baseUrl = System.getProperty(urlMain);
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "100.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");

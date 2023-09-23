@@ -19,15 +19,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Positive login with email")
     @Feature("Login test")
     void loginSuccessWithEmail() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, EMAIL);
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, email);
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(BTN_PROFILE);
+        step.checkTheElementExists(btnProfile);
     }
 
     @Test
@@ -36,15 +36,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email without '@'")
     @Feature("Login test")
     void loginNegativeWrongEmailWithoutAt() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "ilana.qaproton.me");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "ilana.qaproton.me");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
+        step.checkTheElementExists(errorSignInWrongEmail);
     }
 
     @Test
@@ -53,15 +53,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email with '@@'")
     @Feature("Login test")
     void loginNegativeWrongEmailWithTwoAt() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@@proton.me");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "ilana.qa@@proton.me");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
+        step.checkTheElementExists(errorSignInWrongEmail);
     }
 
     @Test
@@ -70,15 +70,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email without userName")
     @Feature("Login test")
     void loginNegativeWrongEmailWithoutNameMail() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "@proton.me");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "@proton.me");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
+        step.checkTheElementExists(errorSignInWrongEmail);
     }
 
     @Test
@@ -87,15 +87,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email without domain")
     @Feature("Login test")
     void loginNegativeWrongEmailWithoutDomain() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "ilana.qa@");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
+        step.checkTheElementExists(errorSignInWrongEmail);
     }
 
     @Test
@@ -104,15 +104,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email with wrong domain")
     @Feature("Login test")
     void loginNegativeWrongEmailWithWrongDomain() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@.me");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "ilana.qa@.me");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
+        step.checkTheElementExists(errorSignInWrongEmail);
     }
 
     @Test
@@ -121,15 +121,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email with '..' in domain")
     @Feature("Login test")
     void loginNegativeWrongEmailWithTwoDots() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa@proton..me");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "ilana.qa@proton..me");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
+        step.checkTheElementExists(errorSignInWrongEmail);
     }
 
     @Test
@@ -138,15 +138,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email with rus symbol")
     @Feature("Login test")
     void loginNegativeWrongEmailWithRusSymbols() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "ilanа.qa@proton.me");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "ilanа.qa@proton.me");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_UNREGISTERED_USER);
+        step.checkTheElementExists(errorSignInUnregisteredUser);
     }
 
     @Test
@@ -155,15 +155,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email, spaced user name")
     @Feature("Login test")
     void loginNegativeWrongEmailWithSpace() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, " ");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, " ");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_EMAIL);
+        step.checkTheElementExists(errorSignInWrongEmail);
     }
 
     @Test
@@ -173,15 +173,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email, user name is empty")
     @Feature("Login test")
     void loginNegativeEmptyEmail() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_INVALID_EMAIL);
+        step.checkTheElementExists(errorSignInInvalidEmail);
     }
 
     @Test
@@ -191,15 +191,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong email, user name is null")
     @Feature("Login test")
     void loginNegativeNullEmail() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, null);
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, null);
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_INVALID_EMAIL);
+        step.checkTheElementExists(errorSignInInvalidEmail);
     }
 
     @Test
@@ -209,15 +209,15 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, wrong password")
     @Feature("Login test")
     void loginNegativeWithEmailWrongPassword() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, EMAIL);
-        step.setValue("PASSWORD", PASSWORD_INPUT, "Ii12345");
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, email);
+        step.setValue("PASSWORD", inputPassword, "Ii12345");
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_WRONG_PASSWORD);
+        step.checkTheElementExists(errorSignInWrongPassword);
     }
 
     @Test
@@ -227,14 +227,14 @@ public class LoginTests extends TestBase {
     @DisplayName("Negative login, unregistered user")
     @Feature("Login test")
     void loginNegativeUnregisteredUser() {
-        step.openPage(URL_LOGIN);
-        step.clickElement("CONTINUE_WITH_EMAIL", CONTINUE_WITH_EMAIL);
-        step.clickElement("TAB_SIGN_IN", TAB_SIGN_IN);
-        $(BTN_SIGN_UP).should(disappear);
-        step.setValue("EMAIL", EMAIL_INPUT, "ilana.qa+1@proton.me");
-        step.setValue("PASSWORD", PASSWORD_INPUT, PASSWORD);
-        step.clickElement("BTN_SIGN_IN", BTN_SIGN_IN);
+        step.openPage(urlLogin);
+        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
+        step.clickElement("TAB_SIGN_IN", tabSignIn);
+        $(btnSignUp).should(disappear);
+        step.setValue("EMAIL", inputEmail, "ilana.qa+1@proton.me");
+        step.setValue("PASSWORD", inputPassword, password);
+        step.clickElement("BTN_SIGN_IN", btnSignIn);
 
-        step.checkTheElementExists(ERROR_SIGN_IN_UNREGISTERED_USER);
+        step.checkTheElementExists(errorSignInUnregisteredUser);
     }
 }
