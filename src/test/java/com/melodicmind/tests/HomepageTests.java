@@ -1,132 +1,138 @@
 package com.melodicmind.tests;
 
-import com.melodicmind.components.WebSteps;
+import com.melodicmind.pages.*;
+import com.melodicmind.pages.components.HeaderComponent;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-
 public class HomepageTests extends TestBase {
 
-    WebSteps step = new WebSteps();
-    String elementName = null;
+    HomePage homePage = new HomePage();
+    TheStoryPage theStoryPage = new TheStoryPage();
+    LearnPage learnPage = new LearnPage();
+    BlogPage blogPage = new BlogPage();
+    ContactPage contactPage = new ContactPage();
+    QandAPage qAndAPage = new QandAPage();
+    LoginPage loginPage = new LoginPage();
+
+    HeaderComponent headerComponent = new HeaderComponent();
+    String urlLogin = "https://melodic-mind.com/login";
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'The Story' Button")
+    @DisplayName("Verification 'The Story' button")
     @Feature("Homepage buttons test")
-    public void verificationTheStoryButtons() {
-        step.openPage(urlMain);
-        elementName = step.getConstantElement(btnTheStory);
-        step.clickElement(elementName, btnTheStory);
+    public void verificateTheStoryButton() {
+        homePage
+                .openPage(urlMain)
+                .clickElement("button 'The Story'", headerComponent.getBtnTheStory())
 
-        step.checkThePageOpened(titleTheStoryPage);
+                .checkThePageOpened("The Story", theStoryPage.getTitleTheStoryPage());
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Learn' Button")
+    @DisplayName("Verification 'Learn' button")
     @Feature("Homepage buttons test")
-    public void verificationLearnButton() {
-        step.openPage(urlMain);
-        elementName = step.getConstantElement(btnLearn);
-        step.clickElement(elementName, btnLearn);
+    public void verificateLearnButton() {
+        homePage
+                .openPage(urlMain)
+                .clickElement("button 'Learn'", headerComponent.getBtnLearn())
 
-        step.checkThePageOpened(titleLearnPage);
+                .checkThePageOpened("Learn", learnPage.getTitleLearnPage());
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Blog' Button")
+    @DisplayName("Verification 'Blog' button")
     @Feature("Homepage buttons test")
-    public void verificationBlogButton() {
-        step.openPage(urlMain);
-        elementName = step.getConstantElement(btnBlog);
-        step.clickElement(elementName, btnBlog);
+    public void verificateBlogButton() {
+        homePage
+                .openPage(urlMain)
+                .clickElement("button 'Blog'", headerComponent.getBtnBlog())
 
-        step.checkThePageOpened(titleBlogPage);
+                .checkThePageOpened("Blog", blogPage.getTitleBlogPage());
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Contact' Button")
+    @DisplayName("Verification 'Contact' button")
     @Feature("Homepage buttons test")
-    public void verificationContactButton() {
-        step.openPage(urlMain);
-        elementName = step.getConstantElement(btnContact);
-        step.clickElement(elementName, btnContact);
+    public void verificateContactButton() {
+        homePage
+                .openPage(urlMain)
+                .clickElement("button 'Contact'", headerComponent.getBtnContact())
 
-        step.checkThePageOpened(titleContactPage);
+                .checkThePageOpened("Contact", contactPage.getTitleContactPage());
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Q and A' Button")
+    @DisplayName("Verification 'Q and A' button")
     @Feature("Homepage buttons test")
-    public void verificationQandAButton() {
-        step.openPage(urlMain);
-        elementName = step.getConstantElement(btnQa);
-        step.clickElement(elementName, btnQa);
+    public void verificateQandAButton() {
+        homePage
+                .openPage(urlMain)
+                .clickElement("button 'Q and A'", headerComponent.getBtnQa())
 
-        step.checkThePageOpened(titleQaPage);
-    }
-
-    @Test
-    @Tag("homepage")
-    @Disabled("The test off")
-    @DisplayName("Verification 'Profile' Button")
-    @Feature("Homepage buttons test")
-    public void verificationProfileButton() {
-        step.openPage(urlLogin);
-        step.clickElement("CONTINUE_WITH_EMAIL", continueWithEmail);
-        step.clickElement("TAB_SIGN_IN", tabSignIn);
-        step.setValue("EMAIL", inputEmail, email);
-        step.setValue("PASSWORD", inputPassword, password);
-        step.clickElement("BTN_SIGN_IN", btnSignIn);
-
-        step.checkTheElementExists(btnProfile);
+                .checkThePageOpened("Q and A", qAndAPage.getTitleQAPage());
     }
 
     @Test
     @Tag("homepage")
     @Disabled("The test off")
-    @DisplayName("Verification 'Login' Button")
+    @DisplayName("Verification 'Profile' button")
     @Feature("Homepage buttons test")
-    public void verificationLoginButton() {
-        closeWebDriver();
+    public void verificateProfileButton() {
+        homePage
+                .openPage(urlLogin)
+                .clickElement("button 'Continue With Email'", loginPage.getBtnContinueWithEmail())
+                .clickElement("tab 'Sign in'", loginPage.getTabSignIn())
+                .checkTheElementDisappear("button 'Sign Up'", loginPage.getBtnSignUp())
+                .setValue("input email", loginPage.getInputEmail(), "ilana.qa@proton.me")
+                .setValue("input password", loginPage.getInputPassword(), "Ii12345$")
+                .clickElement("button 'Sign in'", loginPage.getBtnSignIn())
 
-        step.openPage(urlMain);
-        elementName = step.getConstantElement(btnLogin);
-        step.clickElement(elementName, btnLogin);
-
-        step.checkTheElementExists(continueWithEmail);
+                .checkTheElementAppear("button Profile", headerComponent.getBtnProfile());
     }
 
     @Test
     @Tag("homepage")
     @Disabled("The test off")
-    @DisplayName("Verification 'Settings' Button")
+    @DisplayName("Verification 'Login' button")
     @Feature("Homepage buttons test")
-    public void verificationButton() {
-        step.openPage(urlMain);
-        step.clickElement("BTN_SETTINGS", btnSettings);
+    public void verificateLoginButton() {
+        homePage
+                .openPage(urlMain)
+                .clickElement("button 'Login'", headerComponent.getBtnLogin())
 
-        step.checkTheElementExists(btnClose);
+                .checkTheElementAppear("button 'Continue with Email'", loginPage.getBtnContinueWithEmail());
     }
 
     @Test
     @Tag("homepage")
     @Disabled("The test off")
-    @DisplayName("Verification 'Homepage' Button")
+    @DisplayName("Verification 'Home' button")
     @Feature("Homepage buttons test")
-    public void verificationHomeButton() {
-        step.openPage(urlLogin);
-        elementName = step.getConstantElement(btnHomepage);
-        step.clickElement(elementName, btnHomepage);
+    public void verificateHomeButton() {
+        homePage.openPage(urlLogin)
+                .clickElement("button 'Home'", headerComponent.getBtnHome())
 
-        step.checkContainsText(titleHomePage, "Melodic Mind");
+                .checkContainsText(homePage.getTitleHomePage(), "Melodic Mind");
+    }
+
+    @Test
+    @Tag("homepage")
+    @Disabled("The test off")
+    @DisplayName("Verification 'Favicon' button")
+    @Feature("Homepage buttons test")
+    public void verificateFaviconButton() {
+        homePage.openPage(urlLogin)
+                .clickElement("button 'Favicon'", headerComponent.getBtnFavicon())
+
+                .checkContainsText(homePage.getTitleHomePage(), "Melodic Mind");
     }
 }
