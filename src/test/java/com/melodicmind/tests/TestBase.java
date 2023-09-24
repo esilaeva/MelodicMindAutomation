@@ -23,7 +23,7 @@ public class TestBase {
         Configuration.baseUrl = System.getProperty(urlMain);
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "100.0");
-        Configuration.browserSize = System.getProperty("browserSize", "1200x900");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.remote = System.getProperty("wbhost");
         Configuration.pageLoadStrategy = "eager";
 
