@@ -61,7 +61,7 @@
 
 ### Сборка в Jenkins
 
-Для запуска сборки необходимо перейти на страницу проекта [Melodic Mind](https://jenkins.autotests.cloud/job/MelodicMind/)
+Для запуска сборки необходимо перейти на страницу [проекта Melodic Mind](https://jenkins.autotests.cloud/job/MelodicMind/)
 в `Jenkins`, далее в раздел `Собрать с параметрами`, выбрать необходимые параметры и нажать
 кнопку `Собрать`.
 #### Параметры сборки:
@@ -69,7 +69,7 @@
 - **WBHOST** - URL Selenoid (по умолчанию selenoid.autotests.cloud)
 - **TASK** - задачи (по умолчанию test)
 - **BROWSER** - браузер (по умолчанию chrome)
-- **BROWSER_VERSION** - версия браузера (по умолчанию 99.0)
+- **BROWSER_VERSION** - версия браузера (по умолчанию 100.0)
 - **BROWSER_SIZE** - размер окна браузера (по умолчанию 1920x1080)
 
 <p>
@@ -78,19 +78,19 @@
 </p>
 
 ### Интеграция с Allure Report
-При удаленном запуске тестов в `Jenkins`, автоматически генерируется [Allure Report](https://jenkins.autotests.cloud/job/MelodicMind/8/allure/)
+При удаленном запуске тестов в `Jenkins`, автоматически генерируется [Allure Report](https://jenkins.autotests.cloud/job/MelodicMind/13/allure/)
 
-##### [Overview](https://jenkins.autotests.cloud/job/MelodicMind/8/allure/#)
+##### [Overview](https://jenkins.autotests.cloud/job/MelodicMind/13/allure/#)
 
 <img width="100%" title="Allure Report" src="src/test/resources/screenshorts/004-allureReport.png">
 
-##### [Test details](https://jenkins.autotests.cloud/job/MelodicMind/8/allure/#behaviors)
+##### [Test details](https://jenkins.autotests.cloud/job/MelodicMind/13/allure/#behaviors)
 
 <img width="100%" title="Allure Report" src="src/test/resources/screenshorts/008-allureReport.png">
 
 ### Интеграция с Allure TestOps
 
-В отчете [Allure TestOps](https://allure.autotests.cloud/launch/30255) можно:
+В отчете [Allure TestOps](https://allure.autotests.cloud/launch/30319) можно:
 
 - просматривать созданные тест-кейсы и чек-листы,
 - запускать ручные и автоматические тестовые прогоны,
