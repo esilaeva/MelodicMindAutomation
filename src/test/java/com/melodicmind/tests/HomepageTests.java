@@ -1,138 +1,99 @@
 package com.melodicmind.tests;
 
 import com.melodicmind.pages.*;
-import com.melodicmind.pages.components.HeaderComponent;
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Feature(value = "Homepage buttons test")
 public class HomepageTests extends TestBase {
 
     HomePage homePage = new HomePage();
     TheStoryPage theStoryPage = new TheStoryPage();
-    LearnPage learnPage = new LearnPage();
     BlogPage blogPage = new BlogPage();
     ContactPage contactPage = new ContactPage();
     QandAPage qAndAPage = new QandAPage();
     LoginPage loginPage = new LoginPage();
 
-    HeaderComponent headerComponent = new HeaderComponent();
-    String urlLogin = "https://melodic-mind.com/login";
-
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'The Story' button")
-    @Feature("Homepage buttons test")
-    public void verificateTheStoryButton() {
+    @DisplayName("Checking The Story button")
+    public void checkTheStoryButton() {
         homePage
-                .openPage(urlMain)
-                .clickElement("button 'The Story'", headerComponent.getBtnTheStory())
+                .openMainPage()
+                .openTheStoryPage();
 
-                .checkThePageOpened("The Story", theStoryPage.getTitleTheStoryPage());
+        theStoryPage.checkTheStoryPageWasOpened();
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Learn' button")
-    @Feature("Homepage buttons test")
-    public void verificateLearnButton() {
+    @DisplayName("Checking Blog button")
+    public void checkBlogButton() {
+        homePage.openMainPage()
+                .openBlogPage();
+
+        blogPage.checkBlogPageWasOpened();
+    }
+
+    @Test
+    @Tag("homepage")
+    @DisplayName("Checking Contact button")
+    public void checkContactButton() {
         homePage
-                .openPage(urlMain)
-                .clickElement("button 'Learn'", headerComponent.getBtnLearn())
+                .openMainPage()
+                .openContactPage();
 
-                .checkThePageOpened("Learn", learnPage.getTitleLearnPage());
+        contactPage.checkContactPageWasOpened();
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Blog' button")
-    @Feature("Homepage buttons test")
-    public void verificateBlogButton() {
+    @DisplayName("Checking Q&A button")
+    public void checkQandAButton() {
         homePage
-                .openPage(urlMain)
-                .clickElement("button 'Blog'", headerComponent.getBtnBlog())
+                .openMainPage()
+                .openQandAPage();
 
-                .checkThePageOpened("Blog", blogPage.getTitleBlogPage());
+        qAndAPage.checkQandAPageWasOpened();
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Contact' button")
-    @Feature("Homepage buttons test")
-    public void verificateContactButton() {
+    @DisplayName("Checking Profile button")
+    public void checkProfileButton() {
         homePage
-                .openPage(urlMain)
-                .clickElement("button 'Contact'", headerComponent.getBtnContact())
+                .openMainPage()
+                .openLoginPage();
+        loginPage
+                .clickBtnContinueWithEmail()
+                .setEmail("ilana.qa@proton.me")
+                .setPassword("Ii12345$")
+                .clickButtonSignIn();
 
-                .checkThePageOpened("Contact", contactPage.getTitleContactPage());
+        homePage.checkHomePageWasOpened();
     }
 
     @Test
     @Tag("homepage")
-    @DisplayName("Verification 'Q and A' button")
-    @Feature("Homepage buttons test")
-    public void verificateQandAButton() {
+    @DisplayName("Checking Login button")
+    public void checkLoginButton() {
         homePage
-                .openPage(urlMain)
-                .clickElement("button 'Q and A'", headerComponent.getBtnQa())
+                .openMainPage()
+                .openLoginPage();
 
-                .checkThePageOpened("Q and A", qAndAPage.getTitleQAPage());
+        loginPage.checkLoginPageWasOpened();
     }
 
     @Test
     @Tag("homepage")
-    @Disabled("The test off")
-    @DisplayName("Verification 'Profile' button")
-    @Feature("Homepage buttons test")
-    public void verificateProfileButton() {
-        homePage
-                .openPage(urlLogin)
-                .clickElement("button 'Continue With Email'", loginPage.getBtnContinueWithEmail())
-                .clickElement("tab 'Sign in'", loginPage.getTabSignIn())
-                .checkTheElementDisappear("button 'Sign Up'", loginPage.getBtnSignUp())
-                .setValue("input email", loginPage.getInputEmail(), "ilana.qa@proton.me")
-                .setValue("input password", loginPage.getInputPassword(), "Ii12345$")
-                .clickElement("button 'Sign in'", loginPage.getBtnSignIn())
+    @DisplayName("Checking Home button")
+    public void checkHomeButton() {
+        homePage.openMainPage()
+                .openLoginPage()
+                .openHomePage()
 
-                .checkTheElementAppear("button Profile", headerComponent.getBtnProfile());
-    }
-
-    @Test
-    @Tag("homepage")
-    @Disabled("The test off")
-    @DisplayName("Verification 'Login' button")
-    @Feature("Homepage buttons test")
-    public void verificateLoginButton() {
-        homePage
-                .openPage(urlMain)
-                .clickElement("button 'Login'", headerComponent.getBtnLogin())
-
-                .checkTheElementAppear("button 'Continue with Email'", loginPage.getBtnContinueWithEmail());
-    }
-
-    @Test
-    @Tag("homepage")
-    @Disabled("The test off")
-    @DisplayName("Verification 'Home' button")
-    @Feature("Homepage buttons test")
-    public void verificateHomeButton() {
-        homePage.openPage(urlLogin)
-                .clickElement("button 'Home'", headerComponent.getBtnHome())
-
-                .checkContainsText(homePage.getTitleHomePage(), "Melodic Mind");
-    }
-
-    @Test
-    @Tag("homepage")
-    @Disabled("The test off")
-    @DisplayName("Verification 'Favicon' button")
-    @Feature("Homepage buttons test")
-    public void verificateFaviconButton() {
-        homePage.openPage(urlLogin)
-                .clickElement("button 'Favicon'", headerComponent.getBtnFavicon())
-
-                .checkContainsText(homePage.getTitleHomePage(), "Melodic Mind");
+                .checkHomePageWasOpened();
     }
 }
