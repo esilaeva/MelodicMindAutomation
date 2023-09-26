@@ -11,14 +11,12 @@ import static com.codeborne.selenide.Selenide.$;
 public class HeaderComponent {
 
     public SelenideElement
-            btnFavicon = $("a[href='/'"),
-            btnHome = $("a[href='/'"),
-            btnTheStory = $("a[href='/the-story']"),
-            btnLearn = $("a[href='/learn']"),
-            btnBlog = $("a[href='/blog']"),
-            btnContact = $("a[href='/contact']"),
-            btnQa = $("a[href='/qa']"),
-            btnLogin = $("a[href='/login']"),
-            btnProfile = $("a[href='/account']"),
-            btnSettings = $("header div div div div button");
+            buttonHome = $("a[href='/'"),
+            buttonTheStory = $("a[href='/the-story']"),
+            buttonBlog = $("a[href='/blog']"),
+            buttonContact = $("a[href='/contact']"),
+            buttonQa = $("a[href='/qa']"),
+            buttonLogin = $("a[href='/login']"),
+            buttonProfile = $("a[href='/account']"),
+            buttonSettings = $("header div div div div button");
 }

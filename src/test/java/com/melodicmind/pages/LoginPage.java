@@ -6,8 +6,7 @@ import com.melodicmind.tests.TestBase;
 import io.qameta.allure.Step;
 import lombok.Getter;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.disappear;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -19,54 +18,78 @@ public class LoginPage extends TestBase {
     HomePage homePage = new HomePage();
 
     SelenideElement
-            btnContinueWithEmail = $("div.btn-container").lastChild(),
-            tabSignIn = $("div.email-auth-container").$(byText("Sign in")),
-            btnSignUp = $("form.login-form button").$(byText("Sign up")),
-            btnSignIn = $("form.login-form").lastChild(),
+            title = $("h1"),
+            buttonContinue = $("div.btn-container"),
+            tab = $("div.email-auth-container"),
+            buttonSubmit = $("form.login-form"),
             inputEmail = $("form.q-form.login-form input[aria-label='Email']"),
             inputPassword = $("form.q-form.login-form input[aria-label='Password'"),
-            errorSignInWrongEmail = $("#q-notify").$(byText("Error signing in, please try again.")),
-            errorSignInWrongPassword = $("#q-notify").$(byText("Wrong password")),
-            errorSignInUnregisteredUser = $("#q-notify").$(byText("No user found with this email")),
-            errorSignInInvalidEmail = $(byText("Invalid email address"));
+            error = $("#q-notify");
 
-    @Step("Open {url}")
-    public LoginPage openPage(String url) {
-        open(url);
+    @Step("Error: wrong Email")
+    public void checkErrorMessageWrongEmailAppeared(){
+        error.$(byText("Error signing in, please try again.")).shouldBe(appear);
+    }
+
+    @Step("Error: wrong Email")
+    public void checkErrorMessageWrongPasswordAppeared(){
+        error.$(byText("Wrong password")).shouldBe(appear);
+    }
+
+    @Step("Error: wrong Email")
+    public void checkErrorMessageUnregisteredUserAppeared(){
+        error.$(byText("No user found with this email")).shouldBe(appear);
+    }
+
+    @Step("Open Login Page")
+    public LoginPage openLoginPage() {
+        open("https://melodic-mind.com/login");
 
         return this;
     }
 
-    @Step("Click on the {elementName}")
-    public LoginPage clickElement(String elementName, SelenideElement element) {
-        element.click();
+    @Step("Click on the button Sign in")
+    public void clickButtonSignIn() {
+        buttonSubmit.$("button.primary").click();
+    }
+
+    @Step("Click on the Tab Sign in")
+    public LoginPage clickTabSignIn() {
+        tab.$(byText("Sign in")).click();
 
         return this;
     }
 
-    @Step("Set value into {elementName}")
-    public LoginPage setValue(String elementName, SelenideElement element, String value) {
-        element.setValue(value);
+    @Step("The button Sign up disappeared")
+    public LoginPage checkButtonSignUpDisappear() {
+        buttonSubmit.$(byText("Sign up")).should(disappear);
 
         return this;
     }
 
-    @Step("Verification: {elementName} appeared")
-    public void checkTheElementAppear(String elementName, SelenideElement element) {
-        element.should(appear);
-    }
-
-    @Step("Verification: {elementName} disappeared")
-    public LoginPage checkTheElementDisappear(String elementName, SelenideElement element) {
-        element.should(disappear);
+    @Step("Click on the button Continue with Email")
+    public LoginPage clickBtnContinueWithEmail() {
+        buttonContinue.lastChild().click();
 
         return this;
     }
 
-    @Step("Delete cookies")
-    public LoginPage acceptCookie() {
-        homePage.btnAcceptCookies.click();
+    @Step("Input email")
+    public LoginPage setEmail(String value) {
+        inputEmail.setValue(value);
 
         return this;
+    }
+
+    @Step("Input password")
+    public LoginPage setPassword(String value) {
+        inputPassword.setValue(value);
+
+        return this;
+    }
+
+    @Step("Login Page was opened")
+    public void checkLoginPageWasOpened() {
+        title.shouldHave(text("Login / Sign Up"));
     }
 }
