@@ -60,13 +60,6 @@ public class LoginPage extends TestBase {
         return this;
     }
 
-    @Step("The button Sign up disappeared")
-    public LoginPage checkButtonSignUpDisappear() {
-        buttonSubmit.$(byText("Sign up")).should(disappear);
-
-        return this;
-    }
-
     @Step("Click on the button Continue with Email")
     public LoginPage clickBtnContinueWithEmail() {
         buttonContinue.lastChild().click();
