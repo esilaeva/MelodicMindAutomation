@@ -53,20 +53,6 @@ public class LoginPage extends TestBase {
         buttonSubmit.$("button.primary").click();
     }
 
-    @Step("Click on the Tab Sign in")
-    public LoginPage clickTabSignIn() {
-        tab.$(byText("Sign in")).click();
-
-        return this;
-    }
-
-    @Step("The button Sign up disappeared")
-    public LoginPage checkButtonSignUpDisappear() {
-        buttonSubmit.$(byText("Sign up")).should(disappear);
-
-        return this;
-    }
-
     @Step("Click on the button Continue with Email")
     public LoginPage clickBtnContinueWithEmail() {
         buttonContinue.lastChild().click();
